@@ -1,0 +1,97 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    font-family: 'DM', sans-serif;
+    font-size: 0.9rem;
+    margin-left: 1rem;
+    margin-right: 1rem;
+}
+
+$colour-primary: #E7E7E7;
+$colour-menu1: #3282F7;
+$colour-menu2: #68D9A4;
+$colour-menu3: #ED6454;
+
+.logo{
+    width: auto;
+    height: 6rem;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 0.5rem;
+}
+
+.rechercher{
+
+    // border: solid 2px red;
+    display: flex;
+    height: 4rem;
+    width: 100%;
+    margin-top: 2rem;
+    
+    
+    &__barre{
+        // border: solid 2px blue;
+        background: $colour-primary;
+        width: 80%;
+        height: 3rem;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        padding-left: 1rem;
+        border-radius: 5px;
+    }
+
+    &__loupe{
+        height: 4rem;
+        width: 4rem;
+    }
+    
+}
+
+.resultat{
+    display: flex;
+    background: $colour-menu1;
+    height: 3rem;
+    width: 6rem;
+    padding: 1rem;
+    margin: 2rem;
+    border-radius: 4px;
+}
+
+.menu{
+    // border: solid 2px green;
+    display: flex;
+    margin-top: 2rem;
+    padding-left: 1rem;
+
+    &__item{
+        margin: 1rem;
+        color: #FFFFFF;
+        border-radius: 4px;
+        padding: 1.3rem;
+        font-weight: 600;
+
+            &--chevron{
+                padding-left: 1rem;
+            }
+    }
+
+    &__ingredients{
+        background: $colour-menu1;
+    }
+
+    &__appareils{
+        background: $colour-menu2;
+    }
+
+    &__ustensiles{
+        background: $colour-menu3;
+    }
+
+
+}
