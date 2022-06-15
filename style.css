@@ -1,0 +1,77 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: "DM", sans-serif;
+  font-size: 0.9rem;
+  margin-left: 1rem;
+  margin-right: 1rem;
+}
+
+.logo {
+  width: auto;
+  height: 6rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 0.5rem;
+}
+
+.rechercher {
+  display: flex;
+  height: 4rem;
+  width: 100%;
+  margin-top: 2rem;
+}
+.rechercher__barre {
+  background: #E7E7E7;
+  width: 80%;
+  height: 3rem;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 1rem;
+  border-radius: 5px;
+}
+.rechercher__loupe {
+  height: 4rem;
+  width: 4rem;
+}
+
+.resultat {
+  display: flex;
+  background: #3282F7;
+  height: 3rem;
+  width: 6rem;
+  padding: 1rem;
+  margin: 2rem;
+  border-radius: 4px;
+}
+
+.menu {
+  display: flex;
+  margin-top: 2rem;
+  padding-left: 1rem;
+}
+.menu__item {
+  margin: 1rem;
+  color: #FFFFFF;
+  border-radius: 4px;
+  padding: 1.3rem;
+  font-weight: 600;
+}
+.menu__item--chevron {
+  padding-left: 1rem;
+}
+.menu__ingredients {
+  background: #3282F7;
+}
+.menu__appareils {
+  background: #68D9A4;
+}
+.menu__ustensiles {
+  background: #ED6454;
+}/*# sourceMappingURL=style.css.map */
