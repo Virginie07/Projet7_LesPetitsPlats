@@ -29,26 +29,39 @@ body {
 .rechercher__barre {
   background: #E7E7E7;
   width: 80%;
-  height: 3rem;
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
+  height: 3.5rem;
+  position: absolute;
+  margin-left: 7rem;
   padding-left: 1rem;
   border-radius: 5px;
+  border: none;
 }
 .rechercher__loupe {
-  height: 4rem;
-  width: 4rem;
+  height: 1.8rem;
+  width: 1.8rem;
+  position: relative;
+  margin-left: 85%;
+  margin-top: 0.5rem;
+  background: #E7E7E7;
+  border: none;
+  cursor: pointer;
+}
+.rechercher__loupe--icone {
+  height: 1.8rem;
+  width: 1.8rem;
 }
 
 .resultat {
   display: flex;
   background: #3282F7;
-  height: 3rem;
-  width: 6rem;
-  padding: 1rem;
+  height: 2.6rem;
+  width: 6.2rem;
+  padding: 0.8rem;
   margin: 2rem;
   border-radius: 4px;
+}
+.resultat__croix {
+  margin-right: 0.5rem;
 }
 
 .menu {
@@ -74,4 +87,57 @@ body {
 }
 .menu__ustensiles {
   background: #ED6454;
+}
+
+.recettes {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin: 1rem;
+}
+.recettes__item {
+  width: 30%;
+  margin-bottom: 2rem;
+}
+.recettes__item--illu {
+  -o-object-fit: cover;
+     object-fit: cover;
+  height: 12rem;
+  width: 100%;
+}
+.recettes__item--composants {
+  background: #E7E7E7;
+  display: flex;
+  flex-wrap: wrap;
+  padding-top: 2rem;
+  padding-bottom: 2rem;
+  height: 14rem;
+}
+.recettes__item--composantsEach {
+  width: 43%;
+  margin-left: 0.7rem;
+}
+.recettes__item--composantsName {
+  margin-bottom: 0.5rem;
+  font-size: 1.1rem;
+}
+.recettes__item--composantsTime {
+  font-size: 1.1rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+  width: 13rem;
+}
+.recettes__item--composantsListe {
+  font-size: 0.7rem;
+}
+.recettes__item--composantsMethod {
+  font-size: 0.7rem;
+  width: 13rem;
+}
+.recettes__item--composantsHorloge {
+  display: flex;
+  padding-left: 2rem;
+}
+.recettes__item--composantsHorlogeIcone {
+  padding-right: 1rem;
 }/*# sourceMappingURL=style.css.map */

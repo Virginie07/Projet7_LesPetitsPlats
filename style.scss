@@ -34,33 +34,48 @@ $colour-menu3: #ED6454;
     margin-top: 2rem;
     
     
-    &__barre{
-        // border: solid 2px blue;
-        background: $colour-primary;
-        width: 80%;
-        height: 3rem;
-        display: block;
-        margin-left: auto;
-        margin-right: auto;
-        padding-left: 1rem;
-        border-radius: 5px;
-    }
+        &__barre{
+            // border: solid 2px blue;
+            background: $colour-primary;
+            width: 80%;
+            height: 3.5rem;
+            position: absolute;
+            margin-left: 7rem;
+            padding-left: 1rem;
+            border-radius: 5px;
+            border: none;
+        }
 
-    &__loupe{
-        height: 4rem;
-        width: 4rem;
-    }
+        &__loupe{
+            height: 1.8rem;
+            width: 1.8rem;
+            position: relative; 
+            margin-left: 85%;
+            margin-top: 0.5rem;
+            background: $colour-primary;
+            border: none;
+            cursor: pointer;
+
+            &--icone{
+                height: 1.8rem;
+                width: 1.8rem;
+            }
+        }
     
 }
 
 .resultat{
     display: flex;
     background: $colour-menu1;
-    height: 3rem;
-    width: 6rem;
-    padding: 1rem;
+    height: 2.6rem;
+    width: 6.2rem;
+    padding: 0.8rem;
     margin: 2rem;
     border-radius: 4px;
+
+        &__croix{
+            margin-right: 0.5rem;
+        }
 }
 
 .menu{
@@ -94,4 +109,76 @@ $colour-menu3: #ED6454;
     }
 
 
+}
+
+.recettes{
+
+    // border: solid 2px fuchsia;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 1rem;
+
+        &__item{
+
+            // border: solid 2px black;
+            width: 30%;
+            margin-bottom: 2rem;
+
+            &--illu{
+                object-fit: cover;
+                height: 12rem;
+                width: 100%;
+            } 
+            
+            &--composants{
+                // border: solid 2px orchid;
+                background: $colour-primary;
+                display: flex;
+                flex-wrap: wrap;
+                padding-top: 2rem;
+                padding-bottom: 2rem;
+                height: 14rem;
+            }
+
+            &--composantsEach{
+                width: 43%;
+                margin-left: 0.7rem;
+            }
+
+            &--composantsName{
+                // border: solid 2px mediumaquamarine;
+                margin-bottom: 0.5rem;
+                font-size: 1.1rem;
+                
+            }
+
+            &--composantsTime{
+                // border: solid 2px orange;
+                font-size: 1.1rem;
+                font-weight: bold;
+                margin-bottom: 0.5rem;
+                width: 13rem;
+            }
+
+            &--composantsListe{
+                // border: solid 2px brown;
+                font-size: 0.7rem;
+            }
+
+            &--composantsMethod{
+                // border: solid 2px blueviolet;
+                font-size: 0.7rem;
+                width: 13rem;
+            }
+
+            &--composantsHorloge{
+                display: flex;
+                padding-left: 2rem;
+            }
+
+            &--composantsHorlogeIcone{
+                padding-right: 1rem;
+            }
+        }
 }
