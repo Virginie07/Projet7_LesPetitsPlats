@@ -15,6 +15,7 @@ $colour-primary: #E7E7E7;
 $colour-menu1: #3282F7;
 $colour-menu2: #68D9A4;
 $colour-menu3: #ED6454;
+$colour-illu: #C7BEBE;
 
 .logo{
     width: auto;
@@ -79,55 +80,84 @@ $colour-menu3: #ED6454;
 }
 
 .menu{
-    // border: solid 2px green;
+    border: solid 2px green;
     display: flex;
     margin-top: 2rem;
     padding-left: 1rem;
 
-    &__item{
-        margin: 1rem;
-        color: #FFFFFF;
-        border-radius: 4px;
-        padding: 1.3rem;
-        font-weight: 600;
+    &__tag{
+        
+        border: solid 2px fuchsia;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 1rem 2rem 1rem 2rem;
 
-            &--chevron{
-                padding-left: 1rem;
-            }
+        
+        
+        &--item{
+            color: #FFFFFF;
+            border-radius: 4px;
+            padding: 1.3rem;
+            font-weight: 600;
+            width: 9rem;
+        }
+
+        &--itemChevron{
+            margin-left: 0.7rem;
+        }
+
+        &--ingredients{
+            background: $colour-menu1;
+        }
+
+        &--appareils{
+            background: $colour-menu2;
+        }
+
+        &--ustensiles{
+            background: $colour-menu3;
+        }
+
+        &--contenu{
+            border: solid 2px red;
+            height: 6rem;
+            width: 9rem;
+
+        }
+
+
     }
-
-    &__ingredients{
-        background: $colour-menu1;
-    }
-
-    &__appareils{
-        background: $colour-menu2;
-    }
-
-    &__ustensiles{
-        background: $colour-menu3;
-    }
-
 
 }
 
 .recettes{
 
-    // border: solid 2px fuchsia;
+    // border: solid 2px blue;
     display: flex;
     justify-content: space-around;
     flex-wrap: wrap;
     margin: 1rem;
+    height: 80rem;
 
         &__item{
 
-            // border: solid 2px black;
+            // border: solid 2px fuchsia;
             width: 30%;
             margin-bottom: 2rem;
+            height: 25rem;
+
+            &--photo{
+                // border: solid 2px green;
+                width: 100%;
+                height: 50%;
+            }
 
             &--illu{
+                // border: solid 2px black;
                 object-fit: cover;
-                height: 12rem;
+                background: $colour-illu;
+                height: 100%;
                 width: 100%;
             } 
             
@@ -138,47 +168,85 @@ $colour-menu3: #ED6454;
                 flex-wrap: wrap;
                 padding-top: 2rem;
                 padding-bottom: 2rem;
-                height: 14rem;
+                height: 50%;
             }
 
-            &--composantsEach{
-                width: 43%;
-                margin-left: 0.7rem;
-            }
+            // &--composantsEach{
+            //     width: 43%;
+            //     margin-left: 0.7rem;
+            // }
 
             &--composantsName{
                 // border: solid 2px mediumaquamarine;
-                margin-bottom: 0.5rem;
+                width: 50%;
+                height: 2rem;
+            }
+
+            &--composantsNamePara{
+                // border: solid 2px yellow;
                 font-size: 1.1rem;
-                
+                margin-left: 1rem;
+                width: 100%;
+                height: 100%;
             }
 
             &--composantsTime{
                 // border: solid 2px orange;
-                font-size: 1.1rem;
+                width: 40%;
+                height: 2rem;
+                margin-left: 2.5rem;
+            }
+
+            &--composantsHorloge{
+                // border: solid 2px green;
+                display: flex;
+                justify-content: flex-end;
+                width: 100%;
+                height: 100%;
+            }
+
+            &--composantsHorlogeIcone{
+                // border: solid 2px brown;
+                object-fit: cover;
+                margin-right: 0.5rem;
+                width: 1.4rem;
+                height: 1.4rem;
+            }
+
+            &--composantsHorlogePara{
+                // border: solid 2px cyan;
                 font-weight: bold;
-                margin-bottom: 0.5rem;
-                width: 13rem;
+                width: 3rem;
+                height: 1.4rem;
             }
 
             &--composantsListe{
                 // border: solid 2px brown;
+                margin-top: 1rem;
                 font-size: 0.7rem;
+                font-weight: bold;
+                margin-left: 1rem;
+                width: 44%;
+                height: 12rem;
             }
 
             &--composantsMethod{
                 // border: solid 2px blueviolet;
+                margin-top: 1rem;
+                margin-left: 2rem;
+                padding: 1rem;
                 font-size: 0.7rem;
-                width: 13rem;
+                width: 45%;
+                height: 12rem;
+                text-overflow: ellipsis;
             }
 
-            &--composantsHorloge{
-                display: flex;
-                padding-left: 2rem;
+            &--composantsMethodPara{
+                // border: solid 2px green;
+                width: 100%;
+                height: 100%;
+                text-overflow: ellipsis;
             }
 
-            &--composantsHorlogeIcone{
-                padding-right: 1rem;
-            }
         }
 }

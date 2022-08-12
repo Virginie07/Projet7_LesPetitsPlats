@@ -13,6 +13,8 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap" rel="stylesheet">
 
+    
+
 
     <link rel="stylesheet" href="fontawesome-free-5.15.4-web/fontawesome-free-5.15.4-web/css/all.css">
 
@@ -41,14 +43,29 @@
         </div>
 
         <nav class="menu">
-            <div class="menu__item menu__ingredients">Ingrédients <i class="fas fa-solid fa-chevron-down menu__item--chevron"></i></div>
-            <div class="menu__item menu__appareils">Appareils <i class="fas fa-solid fa-chevron-down menu__item--chevron"></i></div>
-            <div class="menu__item menu__ustensiles">Ustensiles <i class="fas fa-solid fa-chevron-down menu__item--chevron"></i></div>
+
+            <div class="menu__tag">
+                <button class="menu__tag--item menu__tag--ingredients">Ingrédients <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+
+                <div class="menu__tag--contenu menu__tag--contenuIng"></div>
+            </div>
+            
+            <div class="menu__tag">
+                <button class="menu__tag--item menu__tag--appareils">Appareils <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+
+                <div class="menu__tag--contenu menu__tag--contenuApp"></div>
+            </div>
+
+            <div class="menu__tag">
+                <button class="menu__tag--item menu__tag--ustensiles">Ustensiles <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+
+                <div class="menu__tag--contenu menu__tag--contenuUst"></div>
+            </div>
         </nav>
 
         <div class="recettes">
 
-            <div class="recettes__item">
+            <!-- <div class="recettes__item">
 
                 <div class="recettes__item--photo">
                     <img src="./images/Limonade.jpg" alt="" class="recettes__item--illu">
@@ -57,14 +74,18 @@
                 <div class="recettes__item--composants">
 
                     <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Limonade de Coco</p>
+                        <p class="recettes__item--composantsNamePara">Limonade de Coco</p>
                     </div>
 
                     <div class="recettes__item--composantsTime recettes__item--composantsEach">
+
                         <div class="recettes__item--composantsHorloge">
+
                             <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>10 min</p>
+                            <p class="recettes__item--composantsHorlogePara">10 min</p>
+
                         </div>
+
                     </div>
 
                     <div class="recettes__item--composantsListe recettes__item--composantsEach">
@@ -76,192 +97,13 @@
                     </div>
 
                     <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
+                        <p class='recettes__item--composantsMethodPara'>Mettre les glaçons à votre goût dans le blender, ajouter le lait, la crème de coco, le jus de 2 citrons et le sucre. Mixer jusqu'à avoir la consistence désirée</p>
                     </div>
 
                 </div>
 
-            </div>
-
-            <div class="recettes__item">
-
-                <div class="recettes__item--photo">
-                    <img src="./images/Poisson.jpg" alt="" class="recettes__item--illu">
-                </div>
-
-                <div class="recettes__item--composants">
-
-                    <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Poisson Cru à la tahitienne</p>
-                    </div>
-
-                    <div class="recettes__item--composantsTime recettes__item--composantsEach">
-                        <div class="recettes__item--composantsHorloge">
-                            <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>60 min</p>
-                        </div>
-                    </div>
-
-                    <div class="recettes__item--composantsListe recettes__item--composantsEach">
-                        <p><b>Thon Rouge (ou blanc):</b> 200g</p>
-                        <p><b>Concombre:</b> 1</p>
-                        <p><b>Tomate:</b> 2</p>
-                        <p><b>Carotte:</b> 1</p>
-                        <p><b>Citron Vert:</b> 5</p>
-                        <p><b>Lait de coco:</b> 100ml</p>
-                    </div>
-
-                    <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Découper le thon en dés, mettre dans un plat et recouvrir de jus de citron vert (mieux vaut prendre un plat large et peu profond). Laisser reposer au réfrigérateur au moins 2 heures. ...</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <div class="recettes__item">
-
-                <div class="recettes__item--photo">
-                    <img src="./images/Poulet.jpg" alt="" class="recettes__item--illu">
-                </div>
-
-                <div class="recettes__item--composants">
-
-                    <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Poulet coco réunionnais</p>
-                    </div>
-
-                    <div class="recettes__item--composantsTime recettes__item--composantsEach">
-                        <div class="recettes__item--composantsHorloge">
-                            <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>80 min</p>
-                        </div>
-                    </div>
-
-                    <div class="recettes__item--composantsListe recettes__item--composantsEach">
-                        <p><b>Poulet:</b> 1</p>
-                        <p><b>Lait de coco:</b> 400ml</p>
-                        <p><b>Coulis de tomate:</b> 25cl</p>
-                        <p><b>Oignon:</b> 1</p>
-                        <p><b>Poivron rouge:</b> 1</p>
-                        <p>Huile d'olive</p>
-                    </div>
-
-                    <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Découper le poulet en morceaux, les faire dorer dans une cocotte avec de l'huile d'olive. Salez et poivrez. Une fois doré, laisser cuire en ajoutant de l'eau. Au bout de 30 minutes, ajouter le coulis de tomate, ...</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <div class="recettes__item">
-
-                <div class="recettes__item--photo">
-                    <img src="./images/Riz.jpg" alt="" class="recettes__item--illu">
-                </div>
-
-                <div class="recettes__item--composants">
-
-                    <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Salade de riz</p>
-                    </div>
-
-                    <div class="recettes__item--composantsTime recettes__item--composantsEach">
-                        <div class="recettes__item--composantsHorloge">
-                            <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>50 min</p>
-                        </div>
-                    </div>
-
-                    <div class="recettes__item--composantsListe recettes__item--composantsEach">
-                        <p><b>Riz blanc:</b> 500g</p>
-                        <p><b>Thon en miettes:</b> 200g</p>
-                        <p><b>Tomate:</b> 2</p>
-                        <p><b>Oeuf dur:</b> 2</p>
-                        <p><b>Maïs:</b> 300g</p>
-                        <p><b>Vinaigrette:</b> 5cl</p>
-                    </div>
-
-                    <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Faire cuire le riz. Une fois le riz cuit, le laisser refroidir. Couper les oeufs dur en quarts ou en lamelle au choix, coupez le tomates en dés, ajouter au riz les oeufs, les tomates, le poisson, le maïs et la vinaigrette. Ajouter au gout de chacun des corniches, olives etc..</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <div class="recettes__item">
-
-                <div class="recettes__item--photo">
-                    <img src="./images/Tarte_salée.jpg" alt="" class="recettes__item--illu">
-                </div>
-
-                <div class="recettes__item--composants">
-
-                    <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Tarte au thon</p>
-                    </div>
-
-                    <div class="recettes__item--composantsTime recettes__item--composantsEach">
-                        <div class="recettes__item--composantsHorloge">
-                            <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>50 min</p>
-                        </div>
-                    </div>
-
-                    <div class="recettes__item--composantsListe recettes__item--composantsEach">
-                        <p><b>Pâte feuilletée:</b> 1</p>
-                        <p><b>Thon en miettes:</b> 130g</p>
-                        <p><b>Tomate:</b> 2</p>
-                        <p><b>Crème fraiche:</b> 2 cuillères à soupe</p>
-                        <p><b>Gruyère râpé:</b> 100g</p>
-                        <p><b>Moutarde de Dijon:</b> 1 cuillère à soupe</p>
-                    </div>
-
-                    <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Etaler la pâte feuilleté aux dimensions du moule, étaler la moutarde sur la pâte feuilleté, ajouter le thon. Découper les tomates en rondelles et les poser sur le poisson, ajouter un peu de crème fraiche sur toute la tarte et recouvrez de gruyère râpé. Cuire au four 30 minutes</p>
-                    </div>
-                    
-                </div>
-
-            </div>
-
-            <div class="recettes__item">
-
-                <div class="recettes__item--photo">
-                    <img src="./images/Tarte_Pommes.jpg" alt="" class="recettes__item--illu">
-                </div>
-
-                <div class="recettes__item--composants">
-
-                    <div class="recettes__item--composantsName recettes__item--composantsEach">
-                        <p>Tarte aux pommes</p>
-                    </div>
-
-                    <div class="recettes__item--composantsTime recettes__item--composantsEach">
-                        <div class="recettes__item--composantsHorloge">
-                            <img src="./images/Time.png" alt="" class="recettes__item--composantsHorlogeIcone">
-                            <p>50 min</p>
-                        </div>
-                    </div>
-
-                    <div class="recettes__item--composantsListe recettes__item--composantsEach">
-                        <p><b>Pâte brisée:</b> 1</p>
-                        <p><b>Pomme:</b> 3</p>
-                        <p><b>Oeuf:</b> 2</p>
-                        <p><b>Crème fraiche:</b> 25cl</p>
-                        <p><b>Sucre en Poudre:</b> 100g</p>
-                        <p><b>Sucre vanillé:</b> 1 sachet</p>
-                    </div>
-
-                    <div class="recettes__item--composantsMethod recettes__item--composantsEach">
-                        <p>Commencez par mélanger les oeufs le sucre et le sucre vanillé dans un saladier, découper les pommes en tranches, ajouter la crème fraiche aux oeufs. Une fois que tout est pret, étalez la tarte dans le moule. N'oubliez pas de piquer le fond avec une fourchette avant depositionner les pommes sur la tarte. Finallement verser la préparation à base d'oeufs et de crême fraiche. Laisser cuire au four pendant 30 minutes</p>
-                    </div>
-                    
-                </div>
-
-            </div>
+            </div> -->
+            
 
         </div>
 
@@ -273,7 +115,25 @@
 
     </section>
 
+
+    <script src="./constRecipes.js"></script>
+
+    <script src="./myObjectsData.js"></script>
+
+    <script src="./recherche.js"></script>
+
+    <script src="./petitsplats.js"></script>
+
+   
+
+    
+
+
+
+<!-- <script src="Tests/test.js"></script> -->
+
 </body>
 
-<script src="./petitsplats.js"></script>
+
+
 </html>
