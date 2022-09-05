@@ -20,6 +20,12 @@ body {
   margin-top: 0.5rem;
 }
 
+.close {
+  display: flex;
+  justify-content: flex-end;
+  cursor: pointer;
+}
+
 .rechercher {
   display: flex;
   height: 4rem;
@@ -53,29 +59,35 @@ body {
 
 .resultat {
   display: flex;
+  flex-direction: row;
+}
+.resultat__item {
+  display: none;
   background: #3282F7;
   height: 2.6rem;
-  width: 6.2rem;
+  width: auto;
   padding: 0.8rem;
   margin: 2rem;
   border-radius: 4px;
 }
-.resultat__croix {
+.resultat__texte {
   margin-right: 0.5rem;
+}
+.resultat__croix {
+  cursor: pointer;
 }
 
 .menu {
-  border: solid 2px green;
   display: flex;
   margin-top: 2rem;
   padding-left: 1rem;
 }
 .menu__tag {
-  border: solid 2px fuchsia;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin: 1rem 2rem 1rem 2rem;
+  margin: 1rem 4rem 1rem 4rem;
+  width: 18rem;
 }
 .menu__tag--item {
   color: #FFFFFF;
@@ -86,6 +98,7 @@ body {
 }
 .menu__tag--itemChevron {
   margin-left: 0.7rem;
+  cursor: pointer;
 }
 .menu__tag--ingredients {
   background: #3282F7;
@@ -98,8 +111,43 @@ body {
 }
 .menu__tag--contenu {
   border: solid 2px red;
-  height: 6rem;
-  width: 9rem;
+  height: auto;
+  width: 26rem;
+  display: none;
+  flex-direction: row;
+  flex-wrap: wrap;
+  -moz-column-gap: 1.5rem;
+       column-gap: 1.5rem;
+}
+.menu__tag--contenuIng {
+  background: #3282F7;
+}
+.menu__tag--contenuIngPara {
+  border: solid 2px green;
+  width: 20%;
+  margin-right: 0.1rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+.menu__tag--contenuApp {
+  background: #68D9A4;
+}
+.menu__tag--contenuAppPara {
+  border: solid 2px green;
+  width: 20%;
+  margin-right: 0.1rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
+}
+.menu__tag--contenuUst {
+  background: #ED6454;
+}
+.menu__tag--contenuUstPara {
+  border: solid 2px green;
+  width: 20%;
+  margin-right: 0.1rem;
+  margin-bottom: 0.2rem;
+  cursor: pointer;
 }
 
 .recettes {

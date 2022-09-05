@@ -1,2 +1,2 @@
-searchFunction('Coco');
+// searchFunction('Coco');
 

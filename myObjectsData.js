@@ -1,18 +1,15 @@
 class myRecette{
-    constructor(pId, pName, pServings, pmyIngredients, pTime, pDescription, pAppliance, pUstensils){
+    constructor(pId, pName, pServings, pIngredients, pTime, pDescription, pAppliance, pUstensils){
         this.aId = pId
         this.aName = pName.toLowerCase()
         this.aServings = pServings
-        this.aIngredient = pmyIngredients
+        this.aIngredient = pIngredients
         this.aTime = pTime
         this.aDescription = pDescription.toLowerCase()
         this.aAppliance = pAppliance.toLowerCase()
         this.aUstensils = pUstensils
     }
 
-    // printMe() {
-    //     return('Nom de la recette:' + this.aName + 'Durée:' + this.aTime + 'mn');
-    // }
      
     searchWord(pWord){
         pWord = pWord.toLowerCase();
@@ -33,28 +30,25 @@ class myRecette{
             return true
         }
 
-        let arrayData = ['1',2,'coco','lait'];
-        const wordSearch = 'co lait';
+        for (let index = 0; index < this.aIngredient.length; index++) {
+            if(this.aIngredient[index].ingredient.indexOf(pWord) > -1){
+                return true
+            }
+        }
 
-        let arrayDataConcat = arrayData.join('_');
+        return false
 
-        let results = arrayDataConcat.includes(wordSearch);
+        // let arrayData = ['1',2,'coco','lait'];
+        // const wordSearch = 'lait';
+
+        // let arrayDataConcat = arrayData.join('_');
+
+        // let results = arrayDataConcat.includes(wordSearch);
 
         // console.log('resultat : ' + results);
 
         // console.log(pWord);
 
-
-
-
-        // for (let index = 0; index < recipes.ingredient.length; index++) {
-        //     if(ingredient[index].indexOf(pWord) > -1){
-        //         return 'Here'
-        //     }
-        // }
-       
-
-        return 'je suis pas la'
     }
     
     getFormatedDescription(){
@@ -69,32 +63,28 @@ class myRecette{
         }
     }
 
-    // addIngredients(){
-    //     var listIng = '';
-   
-    //     for(let index = 0; index <this.aIngredient.length; index++) {
 
-    //         listIng = listIng + this.aIngredient[index].ingredient
+    addTagMenus(){
+        // la methode addTagMenus prends les noms des ingredients dans lobjet et les ajoute aux tableaux ingredientsTab.appareilsTab.ustensilsTab
 
-    //     }
+        for (let index = 0; index < this.aIngredient.length; index++) {
 
-    //     listIng = listIng + '<br>';
-
-    //     return listIng;
-    // }
-
-    addTabIngredients(){
-        // la methode addTabIngredients prends les noms des ingredients dans la fiche recette et les ajoute au tableau ingredientsTab
-
-        for (let index = 0; index < recipes[index].ingredients.length; index++) {
-
-            ingredientsTab.push(recipes[index].ingredients.ingredient)
-
-            console.log(ingredientsTab);
+            ingredientsTab.push(this.aIngredient[index].ingredient)
+            
         }
+
+        appareilsTab.push(this.aAppliance)
+
+        for (let index = 0; index < this.aUstensils.length; index++) {
+
+            ustensilsTab.push(this.aUstensils[index])
+
+        }
+
     }
 
-  addHtmlCode(){
+
+    addHtmlCode(){
 
     var recettes = document.getElementsByClassName('recettes');
 
@@ -185,22 +175,41 @@ class myRecette{
     recettes__itemComposantsMethodPara.innerHTML = (this.getFormatedDescription());
     recettes__itemComposantsMethod.appendChild(recettes__itemComposantsMethodPara);
 
-    // div menu tag Ingredients
-    // const menu__tagIngredient = document.getElementsByClassName('menu__tag--contenuIng');
-
-    // menu__tagIngredient[0].innerHTML = this.addIngredients();
-
-    // console.log(this.addIngredients());
-
     }
 
 }
 
 
 
+class searchSequence{
+
+    constructor(pWord, pSearchTime, pTotalResult, pTagIngActu, pTagAppActu, pTagIUstActu,pSearchResult){
+        this.aWord = pWord.toLowerCase()
+        this.aSearchTime = pSearchTime
+        this.aTotalResult = pTotalResult
+        this.aTagIngActu = pTagIngActu
+        this.aTagAppActu = pTagAppActu
+        this.aTagIUstActu = pTagIUstActu
+        this.aSearchResult = pSearchResult
+    }
+
+}
+
+
+
+
 var recetteTab = [];
 
 var ingredientsTab = [];
+
+var appareilsTab = [];
+
+var ustensilsTab = [];
+
+var currentWordSearchTab =[];
+
+
+// Fonction qui permet de generer des objets recette puis de les afficher via la methode de l'objet myRecette
 
 function recetteFactory(){
 
@@ -218,13 +227,7 @@ function recetteFactory(){
         // affichage de la fiche recette a partir de la methode instanciée dans l'objet myRecette
 
         ficheRecette.addHtmlCode();
-
-
-        // affichage des ingredients
-
-        // console.log(ficheRecette.aIngredient);  
-
-       
+      
     }
 
 }
@@ -232,26 +235,179 @@ function recetteFactory(){
 recetteFactory();
 
 
+// Fonction qui parcourt le tableau recetteTab et appelle la methode addTagMenus
 
-
-function ingredientFactory() {
-
-
-    // doit parcourir le tableau recetteTab et appeler la methode addIngredientTab 
+function tagFactory() { 
     
-    for (let index = 0; index < recetteTab[index].length; index++) {
+    for (let index = 0; index < recetteTab.length; index++) {
 
-        recetteTab.addTabIngredients();
+        recetteTab[index].addTagMenus();
         
     }
+}
 
+tagFactory();
+
+
+
+var filteredIngredientsTab = ingredientsTab.filter(function(element, position){
+    return ingredientsTab.indexOf(element) == position;
+})
+
+var filteredAppliancesTab = appareilsTab.filter(function(element, position){
+    return appareilsTab.indexOf(element) == position;
+})
+
+var filteredUstensilsTab = ustensilsTab.filter(function(element, position){
+    return ustensilsTab.indexOf(element) == position;
+})
+
+var filteredCurrentWordSearchTab = [];
+
+
+// Fonction d'affichage des div sous les menus tags
+
+function affichageTag() {
+
+    // div menu tag Ingredients
+
+    const menu__tagIngredient = document.getElementsByClassName('menu__tag--contenuIng'); 
+    
+    for (let index = 0; index < filteredIngredientsTab.length; index++) {
+
+        const ingredientPara = document.createElement('p');   
+        ingredientPara.setAttribute('class','menu__tag--contenuIngPara');
+        
+        ingredientPara.addEventListener("click", () => { 
+            selectionOpen(filteredIngredientsTab[index]);
+        });
+
+        ingredientPara.innerHTML = filteredIngredientsTab[index];
+        menu__tagIngredient[0].appendChild(ingredientPara);
+
+    }
+    
+
+    // div menu tag Appliances
+
+    const menu__tagAppliance = document.getElementsByClassName('menu__tag--contenuApp'); 
+
+
+    for (let index = 0; index < filteredAppliancesTab.length; index++) {
+
+        const appliancePara = document.createElement('p');   
+        appliancePara.setAttribute('class','menu__tag--contenuAppPara');
+
+        appliancePara.addEventListener("click", () => { 
+            selectionOpen(filteredAppliancesTab[index]);
+        });
+
+        appliancePara.innerHTML = filteredAppliancesTab[index];
+        menu__tagAppliance[0].appendChild(appliancePara);
+    }
+
+    // div menu tag Ustensiles
+
+    const menu__tagUstensils = document.getElementsByClassName('menu__tag--contenuUst'); 
+
+
+    for (let index = 0; index < filteredUstensilsTab.length; index++) {
+
+        const ustensilsPara = document.createElement('p');   
+        ustensilsPara.setAttribute('class','menu__tag--contenuUstPara');
+
+        ustensilsPara.addEventListener("click", () => { 
+            selectionOpen(filteredUstensilsTab[index]);
+        });
+
+        ustensilsPara.innerHTML = filteredUstensilsTab[index];
+        menu__tagUstensils[0].appendChild(ustensilsPara);
+
+    }
+    
+
+}
+
+affichageTag();
+
+
+
+// Fonction qui permet l'affichage des div de selection des menus tags + evenement de fermeture d'une div
+
+function afficheCurrentTagTab(){
+
+    // Appel de la div principale
+
+    const resultat = document.getElementsByClassName("resultat");
+
+    // vidage div avant de reafficher la tableau
+
+    resultat[0].innerHTML = '';
+
+    for (let index = 0; index < filteredCurrentWordSearchTab.length; index++) {
+
+    // div itemSelection
+    const itemSelection = document.createElement('div');   
+    itemSelection.setAttribute('class','resultat__item');
+
+    // div texte
+    const itemSelectionTexte = document.createElement('div');   
+    itemSelectionTexte.setAttribute('class','resultat__texte')
+    itemSelectionTexte.innerHTML = (filteredCurrentWordSearchTab[index]);
+    itemSelection.appendChild(itemSelectionTexte);
+
+    // div icone
+    const itemSelectionIcone = document.createElement('i');   
+    itemSelectionIcone.setAttribute('class','fas fa-times-circle resultat__croix');
+    itemSelectionIcone.addEventListener("click", () => { 
+        selectionClose(itemSelection);
+        delSearchEntry(filteredCurrentWordSearchTab[index]);
+    });
+    itemSelection.appendChild(itemSelectionIcone);
+
+    resultat[0].appendChild(itemSelection);
+
+    itemSelection.style.display = "block"; 
+    itemSelection.style.display = "flex";
+
+    }
+
+}
+
+
+afficheCurrentTagTab();
+
+
+
+// Fonction qui permet de supprimer une item du tableau currentWordSearchTab
+
+function delSearchEntry(pEntryToDel){
+    var myIndex = currentWordSearchTab.indexOf(pEntryToDel);
+    
+    if (myIndex !== -1) {
+        currentWordSearchTab.splice(myIndex, 1);
+    }
     
 }
 
-ingredientFactory();
 
 
-console.log(ingredientsTab);
+function afficheResult(){
+
+    console.log(tabResult);
+
+    var recettes = document.getElementsByClassName('recettes');
+
+    recettes[0].innerHTML = '';
+    
+    for (let index = 0; index < tabResult.length; index++) {
+
+        tabResult[index].addHtmlCode();
+        
+    }   
+
+}
+
 
 
 

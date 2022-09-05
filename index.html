@@ -32,34 +32,50 @@
 
     <section class="main">
 
-        <form class="rechercher">
-            <input type="search" placeholder="Rechercher une recette" class="rechercher__barre">
-            <button class="rechercher__loupe"><img src="./images/search-24px 1.png" alt="icone recherche" class="rechercher__loupe--icone"></button>
-        </form>
+        <div class="searchSpace">
 
-        <div class="resultat">
-            <i class="fas fa-times-circle resultat__croix"></i>
-            <p class="resultat__texte">Coco</p>
+            <form class="rechercher">
+                <input type="search" placeholder="Rechercher une recette" id="searchBarre" class="rechercher__barre">
+                <button class="rechercher__loupe"><img src="./images/search-24px 1.png" alt="icone recherche" class="rechercher__loupe--icone"></button>
+            </form>
+
+            <div class="resultat">
+                <!-- <div class="resultat__item">
+                    <i class="fas fa-times-circle resultat__croix"></i>
+                    <p class="resultat__texte">Coco</p>
+                </div> -->
+            </div>
+
         </div>
 
         <nav class="menu">
 
             <div class="menu__tag">
-                <button class="menu__tag--item menu__tag--ingredients">Ingrédients <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+                <p class="close closeIng">X</p>
+                <button class="menu__tag--item menu__tag--ingredients">Ingrédients <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron chevronIng"></i></button>
+                
 
-                <div class="menu__tag--contenu menu__tag--contenuIng"></div>
+                <div class="menu__tag--contenu menu__tag--contenuIng">
+                    <!-- <p class="menu__tag--contenuIngPara menu__tag--contenuPara"></p> -->
+                </div>
             </div>
             
             <div class="menu__tag">
-                <button class="menu__tag--item menu__tag--appareils">Appareils <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+                <p class="close closeApp">X</p>
+                <button class="menu__tag--item menu__tag--appareils">Appareils <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron chevronApp"></i></button>
 
-                <div class="menu__tag--contenu menu__tag--contenuApp"></div>
+                <div class="menu__tag--contenu menu__tag--contenuApp">
+                    <!-- <p class="menu__tag--contenuAppPara menu__tag--contenuPara"></p> -->
+                </div>
             </div>
 
             <div class="menu__tag">
-                <button class="menu__tag--item menu__tag--ustensiles">Ustensiles <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron"></i></button>
+                <p class="close closeUst">X</p>
+                <button class="menu__tag--item menu__tag--ustensiles">Ustensiles <i class="fas fa-solid fa-chevron-down menu__tag--itemChevron chevronUst"></i></button>
 
-                <div class="menu__tag--contenu menu__tag--contenuUst"></div>
+                <div class="menu__tag--contenu menu__tag--contenuUst">
+                    <!-- <p class="menu__tag--contenuUstPara menu__tag--contenuPara"></p> -->
+                </div>
             </div>
         </nav>
 
@@ -118,7 +134,9 @@
 
     <script src="./constRecipes.js"></script>
 
-    <script src="./myObjectsData.js"></script>
+    <script src="./evenements.js"></script>
+
+    <script src="./myObjectsData.js"></script> 
 
     <script src="./recherche.js"></script>
 

@@ -26,6 +26,12 @@ $colour-illu: #C7BEBE;
     margin-top: 0.5rem;
 }
 
+.close{
+    display: flex;
+    justify-content: flex-end;
+    cursor: pointer;
+}
+
 .rechercher{
 
     // border: solid 2px red;
@@ -66,35 +72,46 @@ $colour-illu: #C7BEBE;
 }
 
 .resultat{
+
     display: flex;
+    flex-direction: row;
+
+    &__item{
+    display: none;
     background: $colour-menu1;
     height: 2.6rem;
-    width: 6.2rem;
+    width: auto;
     padding: 0.8rem;
     margin: 2rem;
     border-radius: 4px;
+    }
 
-        &__croix{
-            margin-right: 0.5rem;
-        }
+    &__texte{
+        margin-right: 0.5rem;
+    }
+
+    &__croix{
+        cursor: pointer;
+    }
+
+
 }
 
 .menu{
-    border: solid 2px green;
+    // border: solid 2px green;
     display: flex;
     margin-top: 2rem;
     padding-left: 1rem;
 
     &__tag{
         
-        border: solid 2px fuchsia;
+        // border: solid 2px fuchsia;
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 1rem 2rem 1rem 2rem;
+        margin: 1rem 4rem 1rem 4rem;
+        width: 18rem;
 
-        
-        
         &--item{
             color: #FFFFFF;
             border-radius: 4px;
@@ -105,6 +122,7 @@ $colour-illu: #C7BEBE;
 
         &--itemChevron{
             margin-left: 0.7rem;
+            cursor: pointer;
         }
 
         &--ingredients{
@@ -119,14 +137,54 @@ $colour-illu: #C7BEBE;
             background: $colour-menu3;
         }
 
+
         &--contenu{
             border: solid 2px red;
-            height: 6rem;
-            width: 9rem;
-
+            height: auto;
+            width: 26rem;
+            display: none;
+            // display: flex;
+            flex-direction: row;
+            flex-wrap: wrap;
+            column-gap: 1.5rem;
         }
 
+        &--contenuIng{
+            background: #3282F7;
+        }
 
+        &--contenuIngPara{
+            border: solid 2px green;
+            width: 20%;
+            margin-right: 0.1rem;
+            margin-bottom: 0.2rem;  
+            cursor: pointer;      
+        }
+
+        &--contenuApp{
+            background: #68D9A4;
+        }
+
+        &--contenuAppPara{
+            border: solid 2px green;
+            width: 20%;
+            margin-right: 0.1rem;
+            margin-bottom: 0.2rem;
+            cursor: pointer;
+        }
+
+        &--contenuUst{
+            background: #ED6454;
+        }   
+
+        &--contenuUstPara{
+            border: solid 2px green;
+            width: 20%;
+            margin-right: 0.1rem;
+            margin-bottom: 0.2rem;
+            cursor: pointer;
+        }
+   
     }
 
 }
