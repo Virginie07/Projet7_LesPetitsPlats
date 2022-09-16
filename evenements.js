@@ -89,40 +89,12 @@ function selectionClose(pItemToClose){
 }
 
 
-// searchBarre.addEventListener ('input', (event) => {
-    
-// });
-
-
-
-
-
-
-// const searchButton = document.querySelector('.rechercher__loupe');
-
-// searchButton.addEventListener("click", getSearchValue);
-
-// function getSearchValue(){
-//     const searchBarre = document.getElementsByClassName('rechercher__barre')[0].value;
-//     console.log(searchBarre);
-
-// }
-
-
-
-
-
-
-
+// Barre de recherche
 
 const selectElement = document.getElementById('searchBarre');
 
 selectElement.addEventListener('input', (event) => {
+  searchFunction(event.target.value, tabResult, true);
 
   console.log(event.target.value);
-//   if (condition) {
-//     searchFunction(event.target.value); 
-//   }
-  searchFunction(event.target.value);
-
 });

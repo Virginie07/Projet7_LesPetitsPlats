@@ -183,18 +183,29 @@ class myRecette{
 
 class searchSequence{
 
-    constructor(pWord, pSearchTime, pTotalResult, pTagIngActu, pTagAppActu, pTagIUstActu,pSearchResult){
-        this.aWord = pWord.toLowerCase()
-        this.aSearchTime = pSearchTime
-        this.aTotalResult = pTotalResult
-        this.aTagIngActu = pTagIngActu
-        this.aTagAppActu = pTagAppActu
-        this.aTagIUstActu = pTagIUstActu
+    constructor(pWord, pSearchResult){
+        this.aWord = pWord
         this.aSearchResult = pSearchResult
     }
 
+    // this.aSearchTime = pSearchTime
+    // this.aTotalResult = pTotalResult
+    // this.aTagIngActu = pTagIngActu
+    // this.aTagAppActu = pTagAppActu
+    // this.aTagIUstActu = pTagIUstActu
+
 }
 
+
+
+function searchSequenceFactory(pWord, tabResult){
+
+    // Generation des objets searchSequence
+       
+    var historySequence = new searchSequence (pWord, tabResult)
+            
+    return historySequence;
+}
 
 
 
@@ -269,68 +280,52 @@ var filteredCurrentWordSearchTab = [];
 
 function affichageTag() {
 
-    // div menu tag Ingredients
+    // menu tag Ing
 
-    const menu__tagIngredient = document.getElementsByClassName('menu__tag--contenuIng'); 
-    
-    for (let index = 0; index < filteredIngredientsTab.length; index++) {
+    affichageMenuTag(filteredIngredientsTab, 'Ing');
 
-        const ingredientPara = document.createElement('p');   
-        ingredientPara.setAttribute('class','menu__tag--contenuIngPara');
-        
-        ingredientPara.addEventListener("click", () => { 
-            selectionOpen(filteredIngredientsTab[index]);
-        });
+    // menu tag App
 
-        ingredientPara.innerHTML = filteredIngredientsTab[index];
-        menu__tagIngredient[0].appendChild(ingredientPara);
+    affichageMenuTag(filteredAppliancesTab, 'App');
 
-    }
-    
+    // div menu tag Ust
 
-    // div menu tag Appliances
-
-    const menu__tagAppliance = document.getElementsByClassName('menu__tag--contenuApp'); 
-
-
-    for (let index = 0; index < filteredAppliancesTab.length; index++) {
-
-        const appliancePara = document.createElement('p');   
-        appliancePara.setAttribute('class','menu__tag--contenuAppPara');
-
-        appliancePara.addEventListener("click", () => { 
-            selectionOpen(filteredAppliancesTab[index]);
-        });
-
-        appliancePara.innerHTML = filteredAppliancesTab[index];
-        menu__tagAppliance[0].appendChild(appliancePara);
-    }
-
-    // div menu tag Ustensiles
-
-    const menu__tagUstensils = document.getElementsByClassName('menu__tag--contenuUst'); 
-
-
-    for (let index = 0; index < filteredUstensilsTab.length; index++) {
-
-        const ustensilsPara = document.createElement('p');   
-        ustensilsPara.setAttribute('class','menu__tag--contenuUstPara');
-
-        ustensilsPara.addEventListener("click", () => { 
-            selectionOpen(filteredUstensilsTab[index]);
-        });
-
-        ustensilsPara.innerHTML = filteredUstensilsTab[index];
-        menu__tagUstensils[0].appendChild(ustensilsPara);
-
-    }
-    
+    affichageMenuTag(filteredUstensilsTab, 'Ust');
 
 }
 
 affichageTag();
 
+// concernTab = tableau parcouru, menu__tagSpec = ing, ust ou app
 
+function affichageMenuTag(concernTab, menu__tagSpec){
+
+    var menu__tag = document.getElementsByClassName('menu__tag--contenu' + menu__tagSpec);
+    menu__tag[0].innerHTML = '';
+    
+    for (let index = 0; index < concernTab.length; index++) {
+
+        const tagPara = document.createElement('p');   
+        tagPara.setAttribute('class','menu__tag--contenu' + menu__tagSpec + 'Para');
+        
+        tagPara.addEventListener("click", () => { 
+            selectionOpen(concernTab[index]);
+        });
+
+        tagPara.innerHTML = concernTab[index];
+        menu__tag[0].appendChild(tagPara);
+
+    }
+}
+
+// function filterHistoryItemSelection(arrayConcerned, requete){
+//     return arrayConcerned.filter(function (elements){
+//         return elements.indexOf(requete) == -1;
+//     })
+// }
+// var historyFilteredIngredientsTab = ingredientsTab.filter(function(itemSelection, position){
+//     return ingredientsTab.indexOf(itemSelection) == position;
+// })
 
 // Fonction qui permet l'affichage des div de selection des menus tags + evenement de fermeture d'une div
 
@@ -354,6 +349,7 @@ function afficheCurrentTagTab(){
     const itemSelectionTexte = document.createElement('div');   
     itemSelectionTexte.setAttribute('class','resultat__texte')
     itemSelectionTexte.innerHTML = (filteredCurrentWordSearchTab[index]);
+    searchFunction(filteredCurrentWordSearchTab[index]);
     itemSelection.appendChild(itemSelectionTexte);
 
     // div icone
@@ -362,6 +358,8 @@ function afficheCurrentTagTab(){
     itemSelectionIcone.addEventListener("click", () => { 
         selectionClose(itemSelection);
         delSearchEntry(filteredCurrentWordSearchTab[index]);
+        // filterHistoryItemSelection(filteredCurrentWordSearchTab, itemSelection)
+        // searchFunction(historyFilteredIngredientsTab[index])
     });
     itemSelection.appendChild(itemSelectionIcone);
 
@@ -392,17 +390,17 @@ function delSearchEntry(pEntryToDel){
 
 
 
-function afficheResult(){
+function afficheResult(tabData){
 
-    console.log(tabResult);
+    // console.log(tabData);
 
     var recettes = document.getElementsByClassName('recettes');
 
     recettes[0].innerHTML = '';
     
-    for (let index = 0; index < tabResult.length; index++) {
+    for (let index = 0; index < tabData.length; index++) {
 
-        tabResult[index].addHtmlCode();
+        tabData[index].addHtmlCode();
         
     }   
 
