@@ -71,6 +71,7 @@ function menuTagUstClose(){
 
 function selectionOpen(pWordSelect){
 
+
     currentWordSearchTab.push(pWordSelect);
     filteredCurrentWordSearchTab = currentWordSearchTab.filter(function(element, position){
         return currentWordSearchTab.indexOf(element) == position;
@@ -78,8 +79,21 @@ function selectionOpen(pWordSelect){
 
     afficheCurrentTagTab();
 
+    currentTabString = stringFunction(filteredCurrentWordSearchTab);
+    console.log(currentTabString);
+    
+    var globalSearch = '';
+    if (wordToUse != '') {
+        globalSearch = wordToUse + '+' + currentTabString
+    }
+    else{
+        globalSearch = currentTabString
+    }
+    
+    searchFunction(globalSearch);
+    console.log(globalSearch);
     // console.log('essai click' + pWordSelect);
-    console.log(currentWordSearchTab);
+    // console.log(currentWordSearchTab);
 }
 
 
@@ -94,7 +108,7 @@ function selectionClose(pItemToClose){
 const selectElement = document.getElementById('searchBarre');
 
 selectElement.addEventListener('input', (event) => {
-  searchFunction(event.target.value, tabResult, true);
-
-  console.log(event.target.value);
+    searchFunction(wordToUse, tabResult, true);
+    wordToUse = event.target.value;
+    console.log(event.target.value);
 });

@@ -273,8 +273,11 @@ var filteredUstensilsTab = ustensilsTab.filter(function(element, position){
     return ustensilsTab.indexOf(element) == position;
 })
 
+// tableau servant au remplissage de la div resultat
 var filteredCurrentWordSearchTab = [];
 
+// variable associant mot de barre de recherche et mot cliqué sous forme de chaine de caractere
+var wordToUse = '';
 
 // Fonction d'affichage des div sous les menus tags
 
@@ -335,6 +338,7 @@ function afficheCurrentTagTab(){
 
     const resultat = document.getElementsByClassName("resultat");
 
+
     // vidage div avant de reafficher la tableau
 
     resultat[0].innerHTML = '';
@@ -349,17 +353,29 @@ function afficheCurrentTagTab(){
     const itemSelectionTexte = document.createElement('div');   
     itemSelectionTexte.setAttribute('class','resultat__texte')
     itemSelectionTexte.innerHTML = (filteredCurrentWordSearchTab[index]);
-    searchFunction(filteredCurrentWordSearchTab[index]);
     itemSelection.appendChild(itemSelectionTexte);
 
     // div icone
+    var globalSearch = '';
     const itemSelectionIcone = document.createElement('i');   
     itemSelectionIcone.setAttribute('class','fas fa-times-circle resultat__croix');
     itemSelectionIcone.addEventListener("click", () => { 
         selectionClose(itemSelection);
         delSearchEntry(filteredCurrentWordSearchTab[index]);
-        // filterHistoryItemSelection(filteredCurrentWordSearchTab, itemSelection)
-        // searchFunction(historyFilteredIngredientsTab[index])
+        filteredCurrentWordSearchTab = currentWordSearchTab.filter(function(element, position){
+            return currentWordSearchTab.indexOf(element) == position;
+        })
+        stringDeleteCurrentTab = stringFunction(filteredCurrentWordSearchTab);
+        console.log(stringDeleteCurrentTab);
+        if (wordToUse != '') {
+            globalSearch = wordToUse + '+' + stringDeleteCurrentTab
+        }
+        else{
+            globalSearch = stringDeleteCurrentTab
+        }
+
+        searchFunction(globalSearch)
+        console.log(globalSearch);
     });
     itemSelection.appendChild(itemSelectionIcone);
 
@@ -374,6 +390,26 @@ function afficheCurrentTagTab(){
 
 
 afficheCurrentTagTab();
+
+
+function stringFunction(tabToString){
+    var newTabString = '';
+
+    for (let index = 0; index < tabToString.length; index++) {
+        if (index == 0) {
+            newTabString = tabToString[index]
+        }
+        else{
+            newTabString = newTabString + '+' + tabToString[index]
+        }
+        
+    }
+    return newTabString
+   
+}
+
+
+
 
 
 

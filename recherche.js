@@ -1,6 +1,91 @@
 var searchHistoryTab = [];
 var tabResult = [];
-var searchHistoryTab = [];
+
+
+function searchFunction(pWord){
+
+    if (pWord.length < 3) {
+        tabResult = recetteTab;
+    }
+    else{
+
+        referenceTab = [];  
+        var pWordTabSplit = pWord.split('+');
+        console.log(pWordTabSplit);
+        var pWordOcc = findOccurence(pWord);
+
+        if (pWordOcc >= 0) {  
+            // recuperation de la searchSequence correspondant a l'index trouvé dans searchHistoryTab
+            var selectedSearchSequence = searchHistoryTab[pWordOcc];
+            tabResult = selectedSearchSequence.aSearchResult; 
+        }        
+        else{
+            referenceTab = recetteTab;
+            for (let index = 0; index < pWordTabSplit.length; index++) {
+                tabResult = [];
+                for (let i = 0; i < referenceTab.length; i++) {
+                    var recetteResult = referenceTab[i].searchWord(pWordTabSplit[index]);
+                
+                    if (recetteResult === true ) {                 
+                    tabResult.push (referenceTab[i])          
+                    }             
+                }
+                referenceTab = tabResult;
+                console.log(tabResult);
+            }           
+            var historySequence = searchSequenceFactory(pWord, tabResult);
+            searchHistoryTab.push(historySequence);
+        }
+    }               
+     
+    afficheResult(tabResult);
+    recupTag ();   
+}
+
+
+
+function findOccurence (pWord){
+    // fonction qui doit detecter les doublons sur certains attributs dans les objets searchHistoryTab
+    // est ce que searchSequence.aWord == pWord 
+    // dans ce cas return index
+
+    for (let index = 0; index < searchHistoryTab.length; index++) {       
+        if (searchHistoryTab[index].aWord == pWord) {
+            return index
+        }
+    }
+    return -1 
+}
+
+
+
+function recupTag (){
+    var actuTag = [];
+    
+    for (let index = 0; index < tabResult.length; index++) {
+        var recetteIng = tabResult[index].aIngredient;
+     
+        for (let i = 0; i < recetteIng.length; i++) {
+            const recetteBisIng = recetteIng[i].ingredient;    
+            actuTag.push(recetteBisIng);   
+        }
+    }
+
+    var filteredActuTag = actuTag.filter(function(element, position){
+        return actuTag.indexOf(element) == position;
+    })
+
+    affichageMenuTag(filteredActuTag, 'Ing');
+
+    // console.log(actuTag);
+    // console.log(filteredActuTag);
+    
+}
+
+
+
+
+
 
 // function searchFunction(pWord){
 //     // parcourir recetteTab
@@ -52,81 +137,42 @@ var searchHistoryTab = [];
 // }
 
 
-function searchFunction(pWord, pTabToSearch, pHistoricSearch){
-    if (pWord.length >= 3) {
-        pTabToSearch = [];
-        var pWordOcc = -1
 
-        if (pHistoricSearch == false) {
 
-            for (let index = 0; index < recetteTab.length; index++) {
-                var recetteResult = recetteTab[index].searchWord(pWord);
+
+// function searchFunction(pWord, pTabToSearch, pHistoricSearch){
+//     var pWordOcc = -1;
+//     if (pWord.length >= 3) {
+//         tabResult = [];
+
+//         // on utilise findOccurrence si le booleen est true
+//         if (pHistoricSearch == true) {
+//             pWordOcc = findOccurence(pWord); 
+//             // recuperation de la searchSequence correspondant a l'index trouvé dans searchHistoryTab
+//             console.log(pWordOcc);
+//             if (pWordOcc >= 0) {
+//                 var selectedSearchSequence = searchHistoryTab[pWordOcc];
+//                 tabResult = selectedSearchSequence.aSearchResult;
+//             }           
+//         }
         
-                if (recetteResult === true ) {                 
-                    pTabToSearch.push (recetteTab[index])          
-                }             
-            }
-
-            var historySequence = searchSequenceFactory(pWord, pTabToSearch);
-            searchHistoryTab.push(historySequence);
-            console.log('test du if');
-        }
-        
-        if (pHistoricSearch == true) {
-            pWordOcc = findOccurence(pWord);
-            // recuperation de la searchSequence correspondant a l'index trouvé dans searchHistoryTab
-            var selectedSearchSequence = searchHistoryTab[pWordOcc];
-            pTabToSearch = selectedSearchSequence.aSearchResult;
-            console.log('test du else');
-        }
-    }
-    afficheResult(pTabToSearch);
-    recupTag ();
-}
-
-
-function findOccurence (pWord){
-
-    // fonction qui doit detecter les doublons sur certains attributs dans les objets searchHistoryTab
-    // est ce que searchSequence.aWord == pWord 
-    // dans ce cas return index
-
-    for (let index = 0; index < searchHistoryTab.length; index++) {       
-        if (searchHistoryTab[index].aWord == pWord) {
-            return index
-        }
-    }
-
-    return -1
-  
-}
-
-
-
-function recupTag (){
-    var actuTag = [];
-    
-    for (let index = 0; index < tabResult.length; index++) {
-        var recetteIng = tabResult[index].aIngredient;
-     
-        for (let i = 0; i < recetteIng.length; i++) {
-            const recetteBisIng = recetteIng[i].ingredient; 
+//         if (pWordOcc == -1) {
+//             for (let index = 0; index < pTabToSearch.length; index++) {
+//                     var recetteResult = pTabToSearch[index].searchWord(pWord);
             
-            actuTag.push(recetteBisIng);   
-        }
-    }
+//                 if (recetteResult === true ) {                 
+//                         tabResult.push (pTabToSearch[index])          
+//                     }             
+//             }
+//             var historySequence = searchSequenceFactory(pWord, tabResult);
+//             searchHistoryTab.push(historySequence);
+//             console.log('test du if');
+//         }
+//     }
 
-    var filteredActuTag = actuTag.filter(function(element, position){
-        return actuTag.indexOf(element) == position;
-    })
-
-    affichageMenuTag(filteredActuTag, 'Ing');
-
-    console.log(actuTag);
-    console.log(filteredActuTag);
-    
-}
-
+//     afficheResult(tabResult);
+//     recupTag ();
+// }
 
 
 
