@@ -313,6 +313,7 @@ function affichageMenuTag(concernTab, menu__tagSpec){
         
         tagPara.addEventListener("click", () => { 
             selectionOpen(concernTab[index]);
+            menuTagClose();
         });
 
         tagPara.innerHTML = concernTab[index];
@@ -329,6 +330,27 @@ function affichageMenuTag(concernTab, menu__tagSpec){
 // var historyFilteredIngredientsTab = ingredientsTab.filter(function(itemSelection, position){
 //     return ingredientsTab.indexOf(itemSelection) == position;
 // })
+
+function typeTag(pWord){
+    for (let index = 0; index < ingredientsTab.length; index++) {
+        if (pWord == ingredientsTab[index]) {
+            return ('resultat__itemIng')
+        }    
+    }
+
+    for (let index = 0; index < appareilsTab.length; index++) {
+        if (pWord == appareilsTab[index]) {
+            return ('resultat__itemApp')
+        }    
+    }
+
+    for (let index = 0; index < ustensilsTab.length; index++) {
+        if (pWord == ustensilsTab[index]) {
+            return ('resultat__itemUst')
+        }    
+    }
+
+}
 
 // Fonction qui permet l'affichage des div de selection des menus tags + evenement de fermeture d'une div
 
@@ -347,7 +369,7 @@ function afficheCurrentTagTab(){
 
     // div itemSelection
     const itemSelection = document.createElement('div');   
-    itemSelection.setAttribute('class','resultat__item');
+    itemSelection.setAttribute('class', typeTag(filteredCurrentWordSearchTab[index]));
 
     // div texte
     const itemSelectionTexte = document.createElement('div');   
@@ -440,6 +462,17 @@ function afficheResult(tabData){
         
     }   
 
+}
+
+function addHtmlTotalSearch(tabNumber){
+    const totalSearch = document.getElementsByClassName('totalSearch');
+    var totalTab = tabNumber.length;
+    totalSearch[0].innerHTML = '';
+
+    const totalSearchRecipes = document.createElement('p');   
+    totalSearchRecipes.setAttribute('class','totalSearch__recipes')
+    totalSearchRecipes.innerHTML = (totalTab + ' recette(s)');
+    totalSearch[0].appendChild(totalSearchRecipes);
 }
 
 

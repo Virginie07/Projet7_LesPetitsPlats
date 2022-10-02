@@ -3,6 +3,7 @@ var tabResult = [];
 
 
 function searchFunction(pWord){
+    var start = new Date();
 
     if (pWord.length < 3) {
         tabResult = recetteTab;
@@ -39,9 +40,23 @@ function searchFunction(pWord){
     }               
      
     afficheResult(tabResult);
-    recupTag ();   
+    recupTag (); 
+    addHtmlTotalSearch(tabResult);  
+
+    var end = new Date();
+    var time = end - start
+
+    addHtmlTimeSearch(time)
 }
 
+function addHtmlTimeSearch(time){
+    const totalSearch = document.getElementsByClassName('totalSearch');
+
+    const totalSearchTime = document.createElement('p');   
+    totalSearchTime.setAttribute('class','totalSearch__time')
+    totalSearchTime.innerHTML = ('( ' + time + 'ms )');
+    totalSearch[0].appendChild(totalSearchTime);
+}
 
 
 function findOccurence (pWord){

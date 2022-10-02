@@ -14,14 +14,15 @@
 const contenuIngTag = document.getElementsByClassName('menu__tag--contenuIng');
 const contenuAppTag = document.getElementsByClassName('menu__tag--contenuApp');
 const contenuUstTag = document.getElementsByClassName('menu__tag--contenuUst');
+const contenuTag = document.getElementsByClassName('menu__tag--contenu');
 
 const chevronIng = document.querySelector(".chevronIng");
 const chevronApp = document.querySelector(".chevronApp");
 const chevronUst = document.querySelector(".chevronUst");
 
-const closeCrossIng = document.querySelector(".closeIng");
-const closeCrossApp = document.querySelector(".closeApp");
-const closeCrossUst = document.querySelector(".closeUst");
+// const closeCrossIng = document.querySelector(".closeIng");
+// const closeCrossApp = document.querySelector(".closeApp");
+// const closeCrossUst = document.querySelector(".closeUst");
 
     // Evenements
 
@@ -29,9 +30,9 @@ chevronIng.addEventListener("click", menuTagIngOpen);
 chevronApp.addEventListener("click", menuTagAppOpen);
 chevronUst.addEventListener("click", menuTagUstOpen);
 
-closeCrossIng.addEventListener("click", menuTagIngClose);
-closeCrossApp.addEventListener("click", menuTagAppClose);
-closeCrossUst.addEventListener("click", menuTagUstClose);
+// closeCrossIng.addEventListener("click", menuTagIngClose);
+// closeCrossApp.addEventListener("click", menuTagAppClose);
+// closeCrossUst.addEventListener("click", menuTagUstClose);
  
     // Fonction pour ouvrir le menu tag
 
@@ -52,16 +53,8 @@ function menuTagUstOpen(){
 
 // Fonction pour fermer le menu tag
 
-function menuTagIngClose(){
-    contenuIngTag[0].style.display = "none";
-}
-
-function menuTagAppClose(){
-    contenuAppTag[0].style.display = "none";
-}
-
-function menuTagUstClose(){
-    contenuUstTag[0].style.display = "none";
+function menuTagClose(){
+    contenuTag[0].style.display = "none";
 }
 
 

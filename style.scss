@@ -71,20 +71,56 @@ $colour-illu: #C7BEBE;
     
 }
 
+.totalSearch{
+    display: flex;
+        &__recipes{
+            margin-left: 6rem;
+            margin-right: 0.5rem;
+            font-style: italic;
+        }
+
+        &__time{
+            font-weight: 600;
+        }
+}
+
 .resultat{
 
     display: flex;
     flex-direction: row;
 
-    &__item{
-    display: none;
-    background: $colour-menu1;
-    height: 2.6rem;
-    width: auto;
-    padding: 0.8rem;
-    margin: 2rem;
-    border-radius: 4px;
+    &__itemIng{
+            background: $colour-menu1;
+            display: none;
+            height: 2.6rem;
+            width: auto;
+            padding: 0.8rem;
+            margin: 2rem;
+            border-radius: 4px;
     }
+
+    &__itemApp{
+        background: $colour-menu2;
+        display: none;
+        height: 2.6rem;
+        width: auto;
+        padding: 0.8rem;
+        margin: 2rem;
+        border-radius: 4px;
+}
+
+    &__itemUst{
+        background: $colour-menu3;
+        display: none;
+        height: 2.6rem;
+        width: auto;
+        padding: 0.8rem;
+        margin: 2rem;
+        border-radius: 4px;
+    }
+
+    
+
 
     &__texte{
         margin-right: 0.5rem;
