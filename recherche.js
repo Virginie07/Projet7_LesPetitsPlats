@@ -11,8 +11,8 @@ function searchFunction(pWord){
     else{
 
         referenceTab = [];  
-        var pWordTabSplit = pWord.split('+');
-        console.log(pWordTabSplit);
+        var wordTabSplit = pWord.split('+');
+        console.log(wordTabSplit);
         var pWordOcc = findOccurence(pWord);
 
         if (pWordOcc >= 0) {  
@@ -21,19 +21,9 @@ function searchFunction(pWord){
             tabResult = selectedSearchSequence.aSearchResult; 
         }        
         else{
-            referenceTab = recetteTab;
-            for (let index = 0; index < pWordTabSplit.length; index++) {
-                tabResult = [];
-                for (let i = 0; i < referenceTab.length; i++) {
-                    var recetteResult = referenceTab[i].searchWord(pWordTabSplit[index]);
-                
-                    if (recetteResult === true ) {                 
-                    tabResult.push (referenceTab[i])          
-                    }             
-                }
-                referenceTab = tabResult;
-                console.log(tabResult);
-            }           
+
+            myWordSearch(wordTabSplit);
+         
             var historySequence = searchSequenceFactory(pWord, tabResult);
             searchHistoryTab.push(historySequence);
         }
@@ -47,6 +37,22 @@ function searchFunction(pWord){
     var time = end - start
 
     addHtmlTimeSearch(time)
+}
+
+function myWordSearch(pWordList){ 
+    var referenceTab = recetteTab;
+    for (let index = 0; index < pWordList.length; index++) {
+        tabResult = [];
+        for (let i = 0; i < referenceTab.length; i++) {
+            var recetteResult = referenceTab[i].searchWord(pWordList[index]);
+        
+            if (recetteResult === true ) {                 
+            tabResult.push (referenceTab[i])          
+            }             
+        }
+        referenceTab = tabResult;
+        console.log(tabResult);
+    }  
 }
 
 function addHtmlTimeSearch(time){

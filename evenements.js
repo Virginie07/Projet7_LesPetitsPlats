@@ -101,7 +101,7 @@ function selectionClose(pItemToClose){
 const selectElement = document.getElementById('searchBarre');
 
 selectElement.addEventListener('input', (event) => {
-    searchFunction(wordToUse, tabResult, true);
     wordToUse = event.target.value;
+    searchFunction(wordToUse);
     console.log(event.target.value);
 });

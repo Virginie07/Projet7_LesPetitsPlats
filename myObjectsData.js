@@ -177,7 +177,18 @@ class myRecette{
 
     }
 
+    
+
 }
+
+
+function recetteFactory(pRecipeToObj){
+    var ficheRecette = new myRecette (pRecipeToObj.id, pRecipeToObj.name, pRecipeToObj.servings, pRecipeToObj.ingredients, pRecipeToObj.time, pRecipeToObj.description, pRecipeToObj.appliance, pRecipeToObj.ustensils);
+
+    return ficheRecette;
+}
+
+
 
 
 
@@ -222,15 +233,17 @@ var currentWordSearchTab =[];
 
 // Fonction qui permet de generer des objets recette puis de les afficher via la methode de l'objet myRecette
 
-function recetteFactory(){
+function recetteTabFactory(){
 
 // Generation des objets recette
 
 
     for (let index = 0; index < recipes.length; index++) {
 
-        var ficheRecette = new myRecette (recipes[index].id, recipes[index].name, recipes[index].servings, recipes[index].ingredients, recipes[index].time, recipes[index].description, recipes[index].appliance, recipes[index].ustensils)
+        // var ficheRecette = new myRecette (recipes[index].id, recipes[index].name, recipes[index].servings, recipes[index].ingredients, recipes[index].time, recipes[index].description, recipes[index].appliance, recipes[index].ustensils)
 
+        var ficheRecette = recetteFactory(recipes[index]);
+        
         // Stockage des objets recette
         
         recetteTab.push(ficheRecette);
@@ -243,7 +256,7 @@ function recetteFactory(){
 
 }
 
-recetteFactory();
+recetteTabFactory();
 
 
 // Fonction qui parcourt le tableau recetteTab et appelle la methode addTagMenus
