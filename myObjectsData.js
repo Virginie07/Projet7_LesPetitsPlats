@@ -326,7 +326,7 @@ function affichageMenuTag(concernTab, menu__tagSpec){
         
         tagPara.addEventListener("click", () => { 
             selectionOpen(concernTab[index]);
-            menuTagClose();
+            menuTagClose(menu__tagSpec);
         });
 
         tagPara.innerHTML = concernTab[index];
@@ -335,14 +335,7 @@ function affichageMenuTag(concernTab, menu__tagSpec){
     }
 }
 
-// function filterHistoryItemSelection(arrayConcerned, requete){
-//     return arrayConcerned.filter(function (elements){
-//         return elements.indexOf(requete) == -1;
-//     })
-// }
-// var historyFilteredIngredientsTab = ingredientsTab.filter(function(itemSelection, position){
-//     return ingredientsTab.indexOf(itemSelection) == position;
-// })
+
 
 function typeTag(pWord){
     for (let index = 0; index < ingredientsTab.length; index++) {
@@ -486,6 +479,24 @@ function addHtmlTotalSearch(tabNumber){
     totalSearchRecipes.setAttribute('class','totalSearch__recipes')
     totalSearchRecipes.innerHTML = (totalTab + ' recette(s)');
     totalSearch[0].appendChild(totalSearchRecipes);
+}
+
+function noSearchResult(){
+    const noResult = document.getElementsByClassName('noResult');
+
+    const noResultPara = document.createElement('p');
+    noResultPara.setAttribute('class','noResult__para');
+    noResultPara.innerHTML = ('Pas de recette correspondant à votre recherche');
+    noResult[0].appendChild(noResultPara);
+}
+
+function thereIsSearchResult(){
+    const noResult = document.getElementsByClassName('noResult');
+
+    const thereIsResultPara = document.createElement('p');
+    thereIsResultPara.setAttribute('class','thereIsResult__para');
+    thereIsResultPara.innerHTML = ('');
+    noResult[0].appendChild(thereIsResultPara);
 }
 
 

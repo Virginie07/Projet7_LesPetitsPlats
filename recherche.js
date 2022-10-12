@@ -45,15 +45,16 @@ function myWordSearch(pWordList){
         tabResult = [];
         for (let i = 0; i < referenceTab.length; i++) {
             var recetteResult = referenceTab[i].searchWord(pWordList[index]);
-        
+         
             if (recetteResult === true ) {                 
-            tabResult.push (referenceTab[i])          
+            tabResult.push (referenceTab[i]);       
             }             
         }
         referenceTab = tabResult;
         console.log(tabResult);
     }  
 }
+
 
 function addHtmlTimeSearch(time){
     const totalSearch = document.getElementsByClassName('totalSearch');
